@@ -53,8 +53,8 @@ function logedin() {
 function addtocart() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log("your have to add product in the page ");
-      resolve();
+      console.log("Mene isko band krke reject kr diya hai ");
+      reject();
     }, 3000);
   });
 }
@@ -66,4 +66,45 @@ signup()
     console.log(
       " All the best you have succesfully entered in this page !!!!!!!"
     );
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    console.log("Finally sare kaam ho gye hai ab ");
   });
+
+// this code is .then method use promise
+
+// async function Ecommerceapp() {
+//   await signup();
+//   await logedin();
+//   await addtocart();
+//   console.log("You have sucseesfully signup in the page !!!!!1!");
+// }
+// Ecommerceapp();
+async function Ecommerceapp() {
+  try {
+    await signup();
+    await logedin();
+    await addtocart();
+    console.log("You have sucseesfully signup in the page !!!!!1!");
+  } catch (error) {
+    console.log(error);
+  }
+}
+Ecommerceapp();
+console.log("Thanks for the shoping with us ");
+
+// hme toh only yeh wala fxn concept use krna yaad krna h
+
+async function fetchdata() {
+  try {
+    const data = res.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchdata();
